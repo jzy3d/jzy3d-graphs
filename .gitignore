@@ -1,5 +1,6 @@
 dist
 build
+target
 doc/javadoc
 .settings
 *.class

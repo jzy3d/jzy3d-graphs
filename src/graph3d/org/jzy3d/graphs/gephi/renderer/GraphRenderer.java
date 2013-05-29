@@ -16,6 +16,7 @@ import org.gephi.layout.spi.Layout;
 import org.jzy3d.chart.Chart;
 import org.jzy3d.chart.ChartLauncher;
 import org.jzy3d.chart.controllers.mouse.picking.MousePickingController;
+import org.jzy3d.chart.factories.AWTChartComponentFactory;
 import org.jzy3d.chart.graphs.GraphChart;
 import org.jzy3d.colors.Color;
 import org.jzy3d.graphs.gephi.layout.IOnStepDoneListener;
@@ -72,7 +73,7 @@ public class GraphRenderer implements IOnStepDoneListener, IGraphRenderer, IObje
         // Chart c = DepthPeelingChart.get(Quality.Fastest, "awt");
         Chart c;// "awt" failed constructor
         if(chart==null || "".equals(chart) || "chart".equals(chart))
-        	c  = new Chart(quality, wt);
+        	c  = AWTChartComponentFactory.chart(quality, wt);
         else if("depthpeelingchart".equals(chart)){
         	c = DepthPeelingChart.get(Quality.Fastest, wt);
         }
