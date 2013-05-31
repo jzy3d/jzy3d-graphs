@@ -15,7 +15,7 @@ import org.gephi.graph.api.NodeData;
 import org.gephi.layout.spi.Layout;
 import org.jzy3d.chart.Chart;
 import org.jzy3d.chart.ChartLauncher;
-import org.jzy3d.chart.controllers.mouse.picking.MousePickingController;
+import org.jzy3d.chart.controllers.mouse.picking.NewtMousePickingController;
 import org.jzy3d.chart.factories.AWTChartComponentFactory;
 import org.jzy3d.chart.graphs.GraphChart;
 import org.jzy3d.colors.Color;
@@ -453,8 +453,8 @@ public class GraphRenderer implements IOnStepDoneListener, IGraphRenderer, IObje
         return chart;
     }
 
-    public MousePickingController<Node,String> getChartMouseController(){
-        return (MousePickingController<Node,String>) ((CanvasAWT)getChart().getCanvas()).getMouseListeners()[0];
+    public NewtMousePickingController<Node,String> getChartMouseController(){
+        return (NewtMousePickingController<Node,String>) ((CanvasAWT)getChart().getCanvas()).getMouseListeners()[0];
     }
 
     public PickingSupport getPickingSupport(){
