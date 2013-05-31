@@ -15,7 +15,7 @@
 	<classpathentry kind="lib" path="lib/jai_core.jar"/>
 	<classpathentry kind="lib" path="lib/vecmath.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/gephi-toolkit.jar"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/org.jzy3d-api"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/org.jzy3d-rd-depthpeeling"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/jzy3d-api"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/jzy3d-depthpeeling"/>
 	<classpathentry kind="output" path="build/eclipse"/>
 </classpath>
