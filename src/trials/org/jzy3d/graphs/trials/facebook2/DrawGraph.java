@@ -43,7 +43,7 @@ public class DrawGraph extends GephiController{
         settings.setEdgeColor(null);
         settings.setGraphColorMapper(graphColorMapper);
 
-        GraphRenderer renderer = GraphRenderer.create(gephi.getGraph(), settings, Quality.Advanced, "awt", "chart");
+        GraphRenderer renderer = GraphRenderer.create(gephi.getGraph(), settings, Quality.Intermediate, "awt", "chart");
         graphColorMapper.setView(renderer.getChart().getView());
         graphColorMapper.setGraph(renderer.getChart().getScene().getGraph());
 

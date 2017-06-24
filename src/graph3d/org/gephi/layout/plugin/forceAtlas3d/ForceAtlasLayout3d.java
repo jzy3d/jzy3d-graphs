@@ -44,12 +44,8 @@ package org.gephi.layout.plugin.forceAtlas3d;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.gephi.data.attributes.type.TimeInterval;
-import org.gephi.dynamic.DynamicUtilities;
 import org.gephi.graph.api.Edge;
-import org.gephi.graph.api.HierarchicalGraph;
 import org.gephi.graph.api.Node;
-import org.gephi.graph.api.NodeData;
 import org.gephi.layout.plugin.AbstractLayout;
 import org.gephi.layout.plugin.ForceVectorNodeLayoutData3d;
 import org.gephi.layout.plugin.ForceVectorUtils3d;

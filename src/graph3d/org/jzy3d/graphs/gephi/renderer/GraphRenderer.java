@@ -39,72 +39,71 @@ import org.jzy3d.plot3d.text.align.Halign;
 import org.jzy3d.plot3d.text.drawable.DrawableTextBillboard;
 import org.jzy3d.plot3d.text.drawable.DrawableTextBitmap;
 
-/** Renders the graph according to visual settings
- * enables interactive settings of the chart (mouse, keyboard, etc).
- * Listen for graph layout change to update display
- * Support peeking facilities (TODO add newMousePicking())
+/**
+ * Renders the graph according to visual settings enables interactive settings
+ * of the chart (mouse, keyboard, etc). Listen for graph layout change to update
+ * display Support peeking facilities (TODO add newMousePicking())
  *
  */
 public class GraphRenderer implements IOnStepDoneListener, IGraphRenderer, IObjectPickedListener {
-    public static GraphRenderer create(GraphModel g, Quality quality, String wt, String chart){
+    public static GraphRenderer create(GraphModel g, Quality quality, String wt, String chart) {
         GraphRenderer rep = new GraphRenderer(g, newChart(g, quality, wt, chart));
         return rep;
     }
 
-    public static GraphRenderer create(GraphModel g, GraphRendererSettings settings, Quality quality, String wt, String chart){
+    public static GraphRenderer create(GraphModel g, GraphRendererSettings settings, Quality quality, String wt, String chart) {
         GraphRenderer renderer = new GraphRenderer(g, settings, newChart(g, quality, wt, chart));
 
-        /*view.addViewLifecycleChangedListener(new IViewLifecycleEventListener() {
-			@Override
-			public void viewWillRender(ViewLifecycleEvent e) {
-				System.out.println("alpha");
-				updatePointAlpha();
-			}
-
-			@Override
-			public void viewHasInit(ViewLifecycleEvent e) {
-			}
-		});*/
+        /*
+         * view.addViewLifecycleChangedListener(new
+         * IViewLifecycleEventListener() {
+         * 
+         * @Override public void viewWillRender(ViewLifecycleEvent e) {
+         * System.out.println("alpha"); updatePointAlpha(); }
+         * 
+         * @Override public void viewHasInit(ViewLifecycleEvent e) { } });
+         */
 
         return renderer;
     }
-//Quality.Advanced, "awt"
+
+    // Quality.Advanced, "awt"
     protected static Chart newChart(GraphModel g, Quality quality, String wt, String chart) {
         // Chart c = DepthPeelingChart.get(Quality.Fastest, "awt");
         Chart c;// "awt" failed constructor
-        if(chart==null || "".equals(chart) || "chart".equals(chart))
-        	c  = AWTChartComponentFactory.chart(quality, wt);
-        else if("depthpeelingchart".equals(chart)){
-        	c = DepthPeelingChart.get(Quality.Fastest, wt);
-        }
-        else if("graphchart".equals(chart)){
-        	c = new GraphChart(quality, wt);
-        }
-        else
-        	throw new IllegalArgumentException("Failed to find the chart type '" + chart + "'");
+        if (chart == null || "".equals(chart) || "chart".equals(chart))
+            c = AWTChartComponentFactory.chart(quality, wt);
+        else if ("depthpeelingchart".equals(chart)) {
+            c = DepthPeelingChart.get(Quality.Fastest, wt);
+        } else if ("graphchart".equals(chart)) {
+            c = new GraphChart(quality, wt);
+        } else
+            throw new IllegalArgumentException("Failed to find the chart type '" + chart + "'");
         c.getView().setSquared(false);
         return c;
     }
 
     /* */
 
-    public GraphRenderer(GraphModel g, Chart c){
+    public GraphRenderer(GraphModel g, Chart c) {
         this(g, new GraphRendererSettings(), c);
     }
-
 
     public GraphRenderer(GraphModel g, GraphRendererSettings settings, Chart c) {
         this.g = g;
         this.chart = c;
         this.settings = settings;
-        c.addMouseController();
-        c.addScreenshotKeyController();
-        c.addKeyController();
+        c.addMouseCameraController();
+        /*
+         * c.getFactory().ne c.addMouseController();
+         * c.addScreenshotKeyController(); c.addKeyController();
+         */
     }
 
     /* LAYOUT UPDATE QUERIES */
 
     int k = 0;
+
     @Override
     public void stepDone(Layout layout) {
         Graph graph = g.getGraph();
@@ -114,9 +113,9 @@ public class GraphRenderer implements IOnStepDoneListener, IGraphRenderer, IObje
             createOrUpdateEdge(e);
         refreshChart();
 
-        if((k%layoutStepRatio)==0){
-            if(layoutStepRatio>1)
-                System.out.println(k+":"+getLastRenderTime() + "ms");
+        if ((k % layoutStepRatio) == 0) {
+            if (layoutStepRatio > 1)
+                System.out.println(k + ":" + getLastRenderTime() + "ms");
         }
         k++;
     }
@@ -126,10 +125,10 @@ public class GraphRenderer implements IOnStepDoneListener, IGraphRenderer, IObje
     }
 
     /**
-     * Step ratio is the number of layout steps required to
-     * update the chart. Sayed differently, if R is number of rendering
-     * occurence, and L number of layout steps, the resulting referesh ratio
-     * is R/L.
+     * Step ratio is the number of layout steps required to update the chart.
+     * Sayed differently, if R is number of rendering occurence, and L number of
+     * layout steps, the resulting referesh ratio is R/L.
+     * 
      * @param stepRatio
      */
     public void setLayoutStepRatio(int stepRatio) {
@@ -142,20 +141,17 @@ public class GraphRenderer implements IOnStepDoneListener, IGraphRenderer, IObje
     public void objectPicked(List<? extends Object> vertices, PickingSupport picking) {
         System.out.println("picking processing time: " + picking.getLastPickPerfMs() + "ms");
         System.out.println("---");
-        for(Object vertex: vertices){
-            Node n = (Node)vertex;
+        for (Object vertex : vertices) {
+            Node n = (Node) vertex;
             getSettings().setSelected(n, true);
             Sphere s = getNodeRepresentation(n);
             s.setColor(getSettings().getNodeColor(n));
             s.setWireframeColor(getSettings().getNodeWireframeColor(n));
             System.out.println("picked: " + vertex);
         }
-        //refreshChart();
+        // refreshChart();
         getChart().render();
     }
-
-
-
 
     public void createOrUpdateNode(Node n) {
         // see also:
@@ -171,8 +167,6 @@ public class GraphRenderer implements IOnStepDoneListener, IGraphRenderer, IObje
             createNode(n);
     }
 
-
-
     public void createOrUpdateEdge(Edge e) {
         if (hasEdgeRepresentation(e))
             updateEdge(e);
@@ -180,18 +174,20 @@ public class GraphRenderer implements IOnStepDoneListener, IGraphRenderer, IObje
             createEdge(e);
     }
 
-    protected String formatNodeLabel(NodeData nd){
-    	return "["+nd.getId()+"]" + nd.getLabel();
+    protected String formatNodeLabel(NodeData nd) {
+        return "[" + nd.getId() + "]" + nd.getLabel();
     }
-    protected String formatNodeLabel2(NodeData nd){
-	    String label = nd.getLabel();
-		int id = label.lastIndexOf(".");
-		if(id==-1)
-			return label;
-		else{
-			return label.substring(id+1);
-		}
-	}
+
+    protected String formatNodeLabel2(NodeData nd) {
+        String label = nd.getLabel();
+        int id = label.lastIndexOf(".");
+        if (id == -1)
+            return label;
+        else {
+            return label.substring(id + 1);
+        }
+    }
+
     /* NODE EDITION */
 
     protected void createNode(Node n) {
@@ -200,20 +196,19 @@ public class GraphRenderer implements IOnStepDoneListener, IGraphRenderer, IObje
         // node information
         NodeData nd = n.getNodeData();
         Coord3d center = createCoordinate(nd);
-        float radius = nd.getRadius()*settings.getRadiusMultiplier();
+        float radius = nd.getRadius() * settings.getRadiusMultiplier();
         String label = formatNodeLabel(nd);
 
-
         // sphere
-        if(settings.isNodeSphereDisplayed()){
+        if (settings.isNodeSphereDisplayed()) {
             Sphere s = createNodeSphere(center, settings.getNodeColor(n), settings.getNodeWireframeColor(n), radius, 15);
-            //s.setDisplayed(false);
+            // s.setDisplayed(false);
             addToSceneGraph(s);
             storeNodeSphere(n, s);
         }
 
         // label
-        if(settings.isNodeLabelDisplayed()){
+        if (settings.isNodeLabelDisplayed()) {
             Coord3d centerLabel = center.clone();
             DrawableTextWrapper txt = createNodeLabel(label, centerLabel, settings.getNodeLabelColor(n));
             addToSceneGraph(txt);
@@ -221,53 +216,57 @@ public class GraphRenderer implements IOnStepDoneListener, IGraphRenderer, IObje
         }
 
         // point
-        if(settings.isNodePointDisplayed()){
+        if (settings.isNodePointDisplayed()) {
             Coord3d centerPoint = center.clone();
-            Point p = createNodePoint(centerPoint, settings.getNodePointColor(n), (int)radius);
+            Point p = createNodePoint(centerPoint, settings.getNodePointColor(n), (int) radius);
             addToSceneGraph(p);
             storeNodePoint(n, p);
         }
 
         // picking
-        registerNodeRepresentationPicking(n);
+        if (!didWarn) {
+            System.err.println("WARNING !!! PICKING DISABLED");
+            didWarn = true;
+        }
+        // registerNodeRepresentationPicking(n);
     }
 
-	private Coord3d createCoordinate(NodeData nd) {
-		return new Coord3d( Float.isNaN(nd.x())?0:nd.x(),
-							Float.isNaN(nd.y())?0:nd.y(),
-							Float.isNaN(nd.z())?0:nd.z());
-	}
+    boolean didWarn = false;
+
+    private Coord3d createCoordinate(NodeData nd) {
+        return new Coord3d(Float.isNaN(nd.x()) ? 0 : nd.x(), Float.isNaN(nd.y()) ? 0 : nd.y(), Float.isNaN(nd.z()) ? 0 : nd.z());
+    }
 
     protected void storeNodeId(Node n) {
         nodeIds.add(n.getId());
     }
 
     protected void updateNode(Node n) {
-        if(settings.isNodeSphereDisplayed())
+        if (settings.isNodeSphereDisplayed())
             updateNodeSphere(n, getNodeRepresentation(n));
-        if(settings.isNodeLabelDisplayed())
+        if (settings.isNodeLabelDisplayed())
             updateNodeLabel(n, getNodeLabel(n));
-        if(settings.isNodePointDisplayed())
+        if (settings.isNodePointDisplayed())
             updateNodePoint(n, getNodePoint(n));
     }
 
     /* EDGE EDITION */
 
     protected void createEdge(Edge e) {
-        Pair<Coord3d,Coord3d> edgeCoordinates = readEdgeCoords(e);
+        Pair<Coord3d, Coord3d> edgeCoordinates = readEdgeCoords(e);
         LineStrip ls = createEdgeLine(edgeCoordinates.a, edgeCoordinates.b, settings.getEdgeColorSource(e), 1);
         addToSceneGraph(ls);
         storeEdgeRepresentation(e, ls);
     }
 
-    protected Pair<Coord3d,Coord3d> readEdgeCoords(Edge e){
+    protected Pair<Coord3d, Coord3d> readEdgeCoords(Edge e) {
         Node n1 = e.getSource();
         Node n2 = e.getTarget();
         NodeData nd1 = n1.getNodeData();
         NodeData nd2 = n2.getNodeData();
         Coord3d c1 = createCoordinate(nd1);
         Coord3d c2 = createCoordinate(nd2);
-        return new Pair<Coord3d,Coord3d>(c1,c2);
+        return new Pair<Coord3d, Coord3d>(c1, c2);
     }
 
     protected void updateEdge(Edge e) {
@@ -298,16 +297,16 @@ public class GraphRenderer implements IOnStepDoneListener, IGraphRenderer, IObje
         position.x = nd.x();
         position.y = nd.y();
         position.z = nd.z();
-        //System.out.println("sphere:" + position);
+        // System.out.println("sphere:" + position);
         s.updateBounds();
     }
 
     public DrawableTextWrapper createNodeLabel(String text, Coord3d c, Color color) {
         DrawableTextWrapper txt;
 
-        if(renderer==TextRendererType.BITMAP)
+        if (renderer == TextRendererType.BITMAP)
             txt = new DrawableTextBitmap(text, c, color);
-        else if(renderer==TextRendererType.BILLBOARD)
+        else if (renderer == TextRendererType.BILLBOARD)
             txt = new DrawableTextBillboard(text, c, color);
         else
             throw new RuntimeException("unknown text wrapper");
@@ -323,8 +322,8 @@ public class GraphRenderer implements IOnStepDoneListener, IGraphRenderer, IObje
         position.x = nd.x();
         position.y = nd.y();
         position.z = nd.z();
-        //System.out.println("label:" + position);
-        //txt.updateBounds();
+        // System.out.println("label:" + position);
+        // txt.updateBounds();
     }
 
     public Point createNodePoint(Coord3d c, Color color, float width) {
@@ -340,7 +339,6 @@ public class GraphRenderer implements IOnStepDoneListener, IGraphRenderer, IObje
         p.xyz.z = nd.z();
         p.updateBounds();
     }
-
 
     public LineStrip createEdgeLine(Coord3d c1, Coord3d c2, Color color, float width) {
         List<Point> points = new ArrayList<Point>();
@@ -373,9 +371,6 @@ public class GraphRenderer implements IOnStepDoneListener, IGraphRenderer, IObje
 
     protected boolean updateViewAtCreateObject = false;
 
-
-
-
     /* UTILS */
 
     TicToc t = new TicToc();
@@ -383,14 +378,14 @@ public class GraphRenderer implements IOnStepDoneListener, IGraphRenderer, IObje
     boolean refreshing = false;
 
     protected void refreshChart() {
-        if(!refreshing){
+        if (!refreshing) {
             refreshing = true;
             t.tic();
             BoundingBox3d bounds = chart.getScene().getGraph().getBounds();
             chart.getView().lookToBox(bounds);
 
             boolean isAnimated = true;
-            if(!isAnimated){
+            if (!isAnimated) {
                 chart.render(); // si pas d'animateur
             }
             refreshing = false;
@@ -453,32 +448,25 @@ public class GraphRenderer implements IOnStepDoneListener, IGraphRenderer, IObje
         return chart;
     }
 
-    public NewtMousePickingController<Node,String> getChartMouseController(){
-        return (NewtMousePickingController<Node,String>) ((CanvasAWT)getChart().getCanvas()).getMouseListeners()[0];
-    }
+    /*
+     * public NewtMousePickingController<Node,String> getChartMouseController(){
+     * return (NewtMousePickingController<Node,String>)
+     * ((CanvasAWT)getChart().getCanvas()).getMouseListeners()[0]; }
+     * 
+     * public PickingSupport getPickingSupport(){ try{ return
+     * getChartMouseController().getPickingSupport(); } catch(ClassCastException
+     * e){ return null; } }
+     * 
+     * public void registerNodeRepresentationPicking(Node n){ Sphere s =
+     * getNodeRepresentation(n); PickingSupport sp = getPickingSupport();
+     * if(sp!=null) sp.registerDrawableObject(s, n); }
+     */
 
-    public PickingSupport getPickingSupport(){
-    	try{
-    		return getChartMouseController().getPickingSupport();
-    	}
-    	catch(ClassCastException e){
-    		return null;
-    	}
-    }
-
-    public void registerNodeRepresentationPicking(Node n){
-        Sphere s = getNodeRepresentation(n);
-        PickingSupport sp = getPickingSupport();
-        if(sp!=null)
-        	sp.registerDrawableObject(s, n);
-    }
-
-    public void openChart(){
+    public void openChart() {
         ChartLauncher.openStaticChart(getChart());
     }
 
     /* */
-
 
     protected GraphModel g;
 

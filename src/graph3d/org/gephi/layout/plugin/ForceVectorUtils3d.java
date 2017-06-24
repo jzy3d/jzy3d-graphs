@@ -41,14 +41,14 @@ Portions Copyrighted 2011 Gephi Consortium.
 */
 package org.gephi.layout.plugin;
 
-import org.gephi.graph.api.NodeData;
+import org.gephi.graph.api.Node;
 
 /**
  *
  * @author Mathieu Jacomy
  */
 public class ForceVectorUtils3d {
-    public static void fcBiRepulsor(NodeData N1, NodeData N2, double c) {
+    public static void fcBiRepulsor(Node N1, Node N2, double c) {
         double xDist = N1.x() - N2.x();	// distance en x entre les deux noeuds
         double yDist = N1.y() - N2.y();
         double zDist = N1.z() - N2.z();
@@ -71,7 +71,7 @@ public class ForceVectorUtils3d {
         }
     }
 
-    /*public static void fcBiRepulsor_y(NodeData N1, NodeData N2, double c, double verticalization) {
+    /*public static void fcBiRepulsor_y(Node N1, Node N2, double c, double verticalization) {
         double xDist = N1.x() - N2.x();	// distance en x entre les deux noeuds
         double yDist = N1.y() - N2.y();
         double zDist = N1.z() - N2.z();
@@ -94,11 +94,11 @@ public class ForceVectorUtils3d {
         }
     }*/
 
-    public static void fcBiRepulsor_noCollide(NodeData N1, NodeData N2, double c) {
+    public static void fcBiRepulsor_noCollide(Node N1, Node N2, double c) {
         double xDist = N1.x() - N2.x();	// distance en x entre les deux noeuds
         double yDist = N1.y() - N2.y();
         double zDist = N1.z() - N2.z();
-        double dist = (float) Math.sqrt(xDist * xDist + yDist * yDist + zDist * zDist) - N1.getSize() - N2.getSize();	// distance (from the border of each node)
+        double dist = (float) Math.sqrt(xDist * xDist + yDist * yDist + zDist * zDist) - N1.size() - N2.size();	// distance (from the border of each node)
 
         if (dist > 0) {
             double f = repulsion(c, dist);
@@ -129,7 +129,7 @@ public class ForceVectorUtils3d {
         }
     }
 
-    public static void fcUniRepulsor(NodeData N1, NodeData N2, double c) {
+    public static void fcUniRepulsor(Node N1, Node N2, double c) {
         double xDist = N1.x() - N2.x();	// distance en x entre les deux noeuds
         double yDist = N1.y() - N2.y();
         double zDist = N1.z() - N2.z();
@@ -146,7 +146,7 @@ public class ForceVectorUtils3d {
         }
     }
 
-    public static void fcBiAttractor(NodeData N1, NodeData N2, double c) {
+    public static void fcBiAttractor(Node N1, Node N2, double c) {
         double xDist = N1.x() - N2.x();	// distance en x entre les deux noeuds
         double yDist = N1.y() - N2.y();
         double zDist = N1.z() - N2.z();
@@ -168,11 +168,11 @@ public class ForceVectorUtils3d {
         }
     }
 
-    public static void fcBiAttractor_noCollide(NodeData N1, NodeData N2, double c) {
+    public static void fcBiAttractor_noCollide(Node N1, Node N2, double c) {
         double xDist = N1.x() - N2.x();	// distance en x entre les deux noeuds
         double yDist = N1.y() - N2.y();
         double zDist = N1.z() - N2.z();
-        double dist = (float) Math.sqrt(xDist * xDist + yDist * yDist + zDist * zDist) - N1.getSize() - N2.getSize();	// distance (from the border of each node)
+        double dist = (float) Math.sqrt(xDist * xDist + yDist * yDist + zDist * zDist) - N1.size() - N2.size();	// distance (from the border of each node)
 
         if (dist > 0) {
             double f = attraction(c, dist);
@@ -190,7 +190,7 @@ public class ForceVectorUtils3d {
         }
     }
 
-    public static void fcBiFlatAttractor(NodeData N1, NodeData N2, double c) {
+    public static void fcBiFlatAttractor(Node N1, Node N2, double c) {
         double xDist = N1.x() - N2.x();	// distance en x entre les deux noeuds
         double yDist = N1.y() - N2.y();
         double zDist = N1.z() - N2.z();
@@ -212,7 +212,7 @@ public class ForceVectorUtils3d {
         }
     }
 
-    public static void fcUniAttractor(NodeData N1, NodeData N2, float c) {
+    public static void fcUniAttractor(Node N1, Node N2, float c) {
         double xDist = N1.x() - N2.x();	// distance en x entre les deux noeuds
         double yDist = N1.y() - N2.y();
         double zDist = N1.z() - N2.z();

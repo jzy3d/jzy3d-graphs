@@ -48,15 +48,9 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
-import org.gephi.data.attributes.type.TimeInterval;
-import org.gephi.dynamic.DynamicUtilities;
-import org.gephi.dynamic.api.DynamicController;
-import org.gephi.dynamic.api.DynamicModel;
 import org.gephi.graph.api.Edge;
 import org.gephi.graph.api.GraphModel;
-import org.gephi.graph.api.HierarchicalGraph;
 import org.gephi.graph.api.Node;
-import org.gephi.graph.api.NodeData;
 import org.gephi.layout.plugin.forceAtlas23d.ForceFactory.AttractionForce;
 import org.gephi.layout.plugin.forceAtlas23d.ForceFactory.RepulsionForce;
 import org.gephi.layout.spi.Layout;

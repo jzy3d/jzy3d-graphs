@@ -40,6 +40,8 @@ public class WattsStrogatzTrial extends GephiController{
     public static int LAYOUT_STEPS = 1000;
 
     public static void main(String[] args){
+        System.setProperty("java.util.Arrays.useLegacyMergeSort", "true");
+        
         // controller
         GephiController controller = new GephiController();
         Workspace w = controller.init();

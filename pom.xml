@@ -2,8 +2,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.jzy3d</groupId>
-    <artifactId>jzy3d-extensions</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <artifactId>jzy3d-graphs</artifactId>
+    <version>1.0.1-SNAPSHOT</version>
     <!--<version>1.0-SNAPSHOT</version>-->
 
     <name>jzy3d-graphs</name>
@@ -12,7 +12,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-    <repositories>
+    <!-- <repositories>
       <repository>
          <id>gephi-snapshots</id>
          <name>Gephi Snapshots</name>
@@ -21,22 +21,50 @@
       <repository>
          <id>gephi-releases</id>
          <name>Gephi Releases</name>
-         <url>http://nexus.gephi.org/nexus/content/repositories/snapshots/</url>
+         <url>http://nexus.gephi.org/nexus/content/repositories/releases/</url>
       </repository>
-   </repositories>
+   </repositories>-->
+   
+   <repositories>
+        <repository>
+           <id>oss-sonatype</id>
+           <name>oss-sonatype</name>
+           <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+           <snapshots>
+              <enabled>true</enabled>
+           </snapshots>
+        </repository>
+
+        <repository>
+           <id>oss-sonatype-release</id>
+           <name>oss-sonatype-release</name>
+           <url>https://oss.sonatype.org/content/repositories/releases/</url>
+           <snapshots>
+              <enabled>false</enabled>
+           </snapshots>
+        </repository>
+        
+        <repository>
+            <id>netbeans</id>
+            <name>NetBeans</name>
+            <url>http://bits.netbeans.org/maven2/</url>
+        </repository>
+     </repositories>
+     
 
     <dependencies>
         <dependency>
             <groupId>org.jzy3d</groupId>
             <artifactId>jzy3d-api</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>1.0.1-SNAPSHOT</version>
         </dependency>
 
-        <dependency>
-         <groupId>org.gephi</groupId>
-         <artifactId>gephi-toolkit</artifactId>
-         <version>0.9-SNAPSHOT</version>
-      </dependency>
+		<dependency>
+		    <groupId>org.gephi</groupId>
+		    <artifactId>gephi-toolkit</artifactId>
+		    <version>0.9.1</version>
+		    <!-- <classifier>all</classifier>-->
+		</dependency>
 
 
     </dependencies>
@@ -55,8 +83,9 @@
                         </goals>
                         <configuration>
                             <sources>
-                                <source>src/api/</source>
+                                <source>src/graph3d/</source>
                                 <source>src/trials/</source>
+                                <source>src/gephi/</source>
                             </sources>
                         </configuration>
                     </execution>
@@ -67,8 +96,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.0</version>
                 <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
                 </configuration>
             </plugin>
             <plugin>
