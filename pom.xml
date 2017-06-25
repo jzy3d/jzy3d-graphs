@@ -7,10 +7,12 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <version.mvn.ftp>1.0-beta-6</version.mvn.ftp>
+
     </properties>
 
 
-     
+
 
     <dependencies>
         <dependency>
@@ -66,6 +68,14 @@
                 </configuration>
             </plugin>
         </plugins>
+
+        <extensions>
+    			<extension>
+    				<groupId>org.apache.maven.wagon</groupId>
+    				<artifactId>wagon-ftp</artifactId>
+    				<version>${version.mvn.ftp}</version>
+    			</extension>
+    		</extensions>
     </build>
 
     <profiles>
@@ -79,7 +89,7 @@
             </properties>
         </profile>
     </profiles>
-    
+
        <repositories>
         <repository>
            <id>oss-sonatype</id>
@@ -98,11 +108,41 @@
               <enabled>false</enabled>
            </snapshots>
         </repository>
-        
+
         <repository>
             <id>netbeans</id>
             <name>NetBeans</name>
             <url>http://bits.netbeans.org/maven2/</url>
         </repository>
+
+        <repository>
+    			<id>jzy3d-snapshots</id>
+    			<name>Jzy3d Snapshots</name>
+    			<url>http://maven.jzy3d.org/snapshots/</url>
+          <snapshots>
+             <enabled>true</enabled>
+          </snapshots>
+    		</repository>
+    		<repository>
+    			<id>jzy3d-releases</id>
+    			<name>Jzy3d Releases</name>
+    			<url>http://maven.jzy3d.org/releases/</url>
+          <snapshots>
+             <enabled>false</enabled>
+          </snapshots>
+    		</repository>
      </repositories>
+
+     <distributionManagement>
+   		<repository>
+   			<id>jzy3d-ftp</id>
+   			<name>Jzy3d Maven Folder</name>
+   			<url>ftp://ftp.cluster013.ovh.net/maven/releases</url>
+   		</repository>
+   		<snapshotRepository>
+   			<id>jzy3d-ftp</id>
+   			<name>Jzy3d Maven Folder SNAPSHOTS</name>
+   			<url>ftp://ftp.cluster013.ovh.net/maven/snapshots</url>
+   		</snapshotRepository>
+   	</distributionManagement>
 </project>
