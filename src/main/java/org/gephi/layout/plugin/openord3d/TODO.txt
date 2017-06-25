@@ -1,0 +1,3 @@
+- Expose stage parameters to properties (DONE)
+- Multi-level
+- Expose grid size to properties?
