@@ -15,14 +15,17 @@ public class ImportAndDrawTrial extends GephiController{
     static Chart c;
     public static int LAYOUT_STEPS = 5000;
     public static void main(String[] args){
+        System.setProperty("java.util.Arrays.useLegacyMergeSort", "true");
+        
         // workspace
         GephiController controller = new GephiController();
         controller.init();
 
         // graph
         //controller.importGraph("data/airlines.graphml");
+        controller.importGraph("data/LesMiserables.gexf");
         //controller.importGraph("data/devices.graphml");
-        controller.importGraph("data/Java.gexf");
+        //controller.importGraph("data/Java.gexf");
 
         // layout
         GraphModel g = controller.getGraph();
@@ -37,7 +40,7 @@ public class ImportAndDrawTrial extends GephiController{
 
         // renderer
         GraphRendererSettings settings = new GraphRendererSettings();
-        settings.setNodeLabelDisplayed(false);
+        settings.setNodeLabelDisplayed(true);
         settings.setNodeSphereDisplayed(true);
         settings.setNodePointDisplayed(false);
         //settings.setNodeWireColor(settings.getNodeColor(null));
