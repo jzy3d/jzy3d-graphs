@@ -3,6 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.jzy3d</groupId>
     <artifactId>jzy3d-graphs</artifactId>
+    <name>Jzy3d Graphs</name>
     <version>1.0.1-SNAPSHOT</version>
 
     <properties>
