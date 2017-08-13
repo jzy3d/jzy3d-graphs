@@ -53,6 +53,7 @@ public class Combine3d implements Runnable {
         this.control = layout.getControl();
     }
 
+    @Override
     public void run() {
         //System.out.println("Combine results");
 
@@ -145,9 +146,9 @@ public class Combine3d implements Runnable {
         NumberFormat formatter = DecimalFormat.getInstance();
         formatter.setMaximumFractionDigits(2);
         for (int i = 0; i < nodes.length; i++) {
-            String xStr = formatter.format((double) nodes[i].x);
-            String yStr = formatter.format((double) nodes[i].y);
-            String zStr = formatter.format((double) nodes[i].z);
+            String xStr = formatter.format(nodes[i].x);
+            String yStr = formatter.format(nodes[i].y);
+            String zStr = formatter.format(nodes[i].z);
             System.out.print("(" + xStr + "-" + yStr + "-" + zStr + "),");
         }
         System.out.println();

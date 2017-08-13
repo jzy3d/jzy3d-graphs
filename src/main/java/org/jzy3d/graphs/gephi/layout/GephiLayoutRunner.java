@@ -59,6 +59,7 @@ public class GephiLayoutRunner {
     
     protected Runnable createLayoutRunnable(final Workspace workspace, final Layout layout) {
         return new Runnable() {
+            @Override
             public void run() {
                 GraphModel gm = Lookup.getDefault().lookup(GraphController.class).getGraphModel(workspace);
                 AutoLayout autoLayout = new AutoLayout(10, TimeUnit.SECONDS);

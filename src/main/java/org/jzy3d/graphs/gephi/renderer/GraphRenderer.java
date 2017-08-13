@@ -149,6 +149,7 @@ public class GraphRenderer implements IOnStepDoneListener, IGraphRenderer, IObje
         getChart().render();
     }
 
+    @Override
     public void createOrUpdateNode(Node n) {
         // see also:
         // PreviewController controller =
@@ -163,6 +164,7 @@ public class GraphRenderer implements IOnStepDoneListener, IGraphRenderer, IObje
             createNode(n);
     }
 
+    @Override
     public void createOrUpdateEdge(Edge e) {
         if (hasEdgeRepresentation(e))
             updateEdge(e);
@@ -275,6 +277,7 @@ public class GraphRenderer implements IOnStepDoneListener, IGraphRenderer, IObje
 
     /* 3D Object creation */
 
+    @Override
     public Sphere createNodeSphere(Coord3d c, Color color, Color wireframe, float radius, int slicing) {
         Sphere s = new PickableSphere(c, radius, slicing, color);
         s.setWireframeColor(wireframe);
@@ -334,6 +337,7 @@ public class GraphRenderer implements IOnStepDoneListener, IGraphRenderer, IObje
         p.updateBounds();
     }
 
+    @Override
     public LineStrip createEdgeLine(Coord3d c1, Coord3d c2, Color color, float width) {
         List<Point> points = new ArrayList<Point>();
         points.add(new Point(c1));

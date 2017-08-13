@@ -59,10 +59,10 @@ public class DensityGrid3d implements Cloneable {
 		for (int i = -RADIUS; i <= RADIUS; i++) {
 			for (int j = -RADIUS; j <= RADIUS; j++) {
 				for (int k = -RADIUS; k <= RADIUS; k++) {
-					fallOff[i + RADIUS][j + RADIUS][k + RADIUS] = (float) ((RADIUS - Math
-							.abs((float) i)) / RADIUS)
-							* (float) ((RADIUS - Math.abs((float) j)) / RADIUS)
-							* (float) ((RADIUS - Math.abs((float) k)) / RADIUS);
+					fallOff[i + RADIUS][j + RADIUS][k + RADIUS] = (RADIUS - Math
+							.abs((float) i)) / RADIUS
+							* ((RADIUS - Math.abs((float) j)) / RADIUS)
+							* ((RADIUS - Math.abs((float) k)) / RADIUS);
 				}
 			}
 		}

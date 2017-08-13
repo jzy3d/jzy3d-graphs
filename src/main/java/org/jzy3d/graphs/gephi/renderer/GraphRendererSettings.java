@@ -138,10 +138,12 @@ public class GraphRendererSettings implements IGraphRendererSettings{
         this.nodeSphereDisplayed = nodeSphereDisplayed;
     }
 
+    @Override
     public void setNodeLabelDisplayed(boolean nodeLabelDisplayed) {
         this.nodeLabelDisplayed = nodeLabelDisplayed;
     }
 
+    @Override
     public void setNodePointDisplayed(boolean nodePointDisplayed) {
         this.nodePointDisplayed = nodePointDisplayed;
     }
@@ -166,9 +168,11 @@ public class GraphRendererSettings implements IGraphRendererSettings{
         this.nodeLabelColor = nodeLabelColor;
     }
 
+    @Override
     public boolean isNodeLabelDisplayed(){
         return nodeLabelDisplayed;
     }
+    @Override
     public boolean isNodePointDisplayed(){
         return nodePointDisplayed;
     }

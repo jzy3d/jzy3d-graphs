@@ -200,9 +200,9 @@ public class OpenOrd3dLayout implements Layout, LongTask {
             for (int i = 0; i < nodes.length; i++) {
                 Node3d n = nodes[i];
                 if (n.fixed) {
-                    n.x = (float) (n.x - shiftX) * ratio;
-                    n.y = (float) (n.y - shiftY) * ratio;
-                    n.z = (float) (n.z - shiftZ) * ratio;
+                    n.x = (n.x - shiftX) * ratio;
+                    n.y = (n.y - shiftY) * ratio;
+                    n.z = (n.z - shiftZ) * ratio;
                 }
             }
         }

@@ -83,6 +83,7 @@ public class ForceAtlasLayout3d extends AbstractLayout implements Layout {
         super(layoutBuilder);
     }
 
+    @Override
     public void resetPropertiesValues() {
         inertia = 0.1;
         setRepulsionStrength(200d);
@@ -98,10 +99,12 @@ public class ForceAtlasLayout3d extends AbstractLayout implements Layout {
         setCooling(1d);
     }
 
+    @Override
     public void initAlgo() {
         this.graph = graphModel.getGraphVisible();
     }
 
+    @Override
     public void goAlgo() {
         this.graph = graphModel.getGraphVisible();
         //this.timeInterval = DynamicUtilities.getVisibleInterval(dynamicModel);
@@ -236,6 +239,7 @@ public class ForceAtlasLayout3d extends AbstractLayout implements Layout {
         graph.readUnlock();
     }
 
+    @Override
     public void endAlgo() {
         for (Node n : graph.getNodes()) {
             n.setLayoutData(null);
@@ -255,6 +259,7 @@ public class ForceAtlasLayout3d extends AbstractLayout implements Layout {
         //}
     }
 
+    @Override
     public LayoutProperty[] getProperties() {
         List<LayoutProperty> properties = new ArrayList<LayoutProperty>();
         final String FORCE_ATLAS = "Force Atlas";
