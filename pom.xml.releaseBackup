@@ -4,7 +4,7 @@
     <groupId>org.jzy3d</groupId>
     <artifactId>jzy3d-graphs</artifactId>
     <name>Jzy3d Graphs</name>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.2-SNAPSHOT</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -19,7 +19,7 @@
         <dependency>
             <groupId>org.jzy3d</groupId>
             <artifactId>jzy3d-api</artifactId>
-            <version>1.0.1-SNAPSHOT</version>
+            <version>1.0.2-SNAPSHOT</version>
         </dependency>
 
 		<dependency>
