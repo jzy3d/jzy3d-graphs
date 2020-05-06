@@ -165,7 +165,8 @@ public class GephiController {
     Map<String,Node> nodes = new HashMap<String,Node>();
 
     /**
-     * memorize store a map of name->node to allow building edges by node string names.
+     * memorize store a map of name to node,
+     * to allow building edges by node string names.
      */
     public Node addNode(String name, boolean memorize) {
         GraphModel graph = getGraph();
