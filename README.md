@@ -1,12 +1,13 @@
-jzy3d-graphs
-============
+# jzy3d-graphs
 
-A set of tools to compute and draw 3d graphs layouts based on Gephi Toolkit.
+A set of tools to compute and draw 3D graph layouts,
+based on the Gephi Toolkit.
 
-<img src="doc/graph7.png">
+![](doc/graph7.png)
 
-Example programs in src/main/java
+Example programs in _src/main/java/_:
 
-org.jzy3d.graphs.trials.ImportAndDrawTrial
+[org.jzy3d.graphs.trials.ImportAndDrawTrial](
+src/main/java/org/jzy3d/graphs/trials/ImportAndDrawTrial.java)
 
-More information at http://www.jzy3d.org/plugins-graphs.php
+More information on [the homepage](http://www.jzy3d.org/plugins-graphs.php).
