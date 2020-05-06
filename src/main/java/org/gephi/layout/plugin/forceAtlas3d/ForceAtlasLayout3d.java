@@ -511,3 +511,4 @@ public class ForceAtlasLayout3d extends AbstractLayout implements Layout {
         this.adjustSizes = adjustSizes;
     }
 }
+

@@ -131,7 +131,7 @@ public class ForceAtlas23d implements Layout {
             return;
         }
         graph = graphModel.getGraphVisible();
-        
+
         //this.timeInterval = DynamicUtilities.getVisibleInterval(dynamicModel);
 
         graph.readLock();
@@ -551,3 +551,4 @@ public class ForceAtlas23d implements Layout {
         //}
     }
 }
+

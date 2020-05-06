@@ -41,7 +41,7 @@ public class WattsStrogatzTrial extends GephiController{
 
     public static void main(String[] args){
         System.setProperty("java.util.Arrays.useLegacyMergeSort", "true");
-        
+
         // controller
         GephiController controller = new GephiController();
         Workspace w = controller.init();
@@ -75,3 +75,4 @@ public class WattsStrogatzTrial extends GephiController{
         runner.run(layout, LAYOUT_STEPS, representation);
     }
 }
+

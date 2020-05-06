@@ -249,3 +249,4 @@ public class DensityGrid3d implements Cloneable {
 	 * = bins[i][j].clone(); } } return densityGrid; }
 	 */
 }
+

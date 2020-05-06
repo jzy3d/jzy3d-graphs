@@ -52,7 +52,7 @@ public class ForceVectorUtils3d {
         double xDist = N1.x() - N2.x();	// distance en x entre les deux noeuds
         double yDist = N1.y() - N2.y();
         double zDist = N1.z() - N2.z();
-        
+
         double dist = (float) Math.sqrt(xDist * xDist + yDist * yDist + zDist * zDist);	// distance tout court
 
         if (dist > 0) {
@@ -75,7 +75,7 @@ public class ForceVectorUtils3d {
         double xDist = N1.x() - N2.x();	// distance en x entre les deux noeuds
         double yDist = N1.y() - N2.y();
         double zDist = N1.z() - N2.z();
-        
+
         double dist = (float) Math.sqrt(xDist * xDist + yDist * yDist + zDist * zDist); // distance tout court
 
         if (dist > 0) {
@@ -237,3 +237,4 @@ public class ForceVectorUtils3d {
         return 0.001 * c / dist;
     }
 }
+

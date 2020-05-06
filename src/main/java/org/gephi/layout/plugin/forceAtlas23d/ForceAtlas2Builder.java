@@ -103,3 +103,4 @@ public class ForceAtlas2Builder implements LayoutBuilder {
         }
     }
 }
+

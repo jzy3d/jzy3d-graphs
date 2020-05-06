@@ -59,3 +59,4 @@ public class ForceVectorNodeLayoutData3d implements LayoutData {
     public float old_dz = 0;
     public float freeze = 0f;
 }
+

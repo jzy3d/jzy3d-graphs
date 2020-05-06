@@ -65,3 +65,4 @@ public class OperationNodeNodeRepulse extends Operation {
         f.apply(n1, n2);
     }
 }
+

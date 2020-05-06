@@ -221,7 +221,7 @@ public class Region {
     public void setMassCenterY(double massCenterY) {
         this.massCenterY = massCenterY;
     }
-    
+
     public double getMassCenterZ() {
         return massCenterZ;
     }
@@ -230,3 +230,4 @@ public class Region {
         this.massCenterZ = massCenterZ;
     }
 }
+

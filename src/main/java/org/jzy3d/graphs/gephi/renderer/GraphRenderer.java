@@ -53,10 +53,10 @@ public class GraphRenderer implements IOnStepDoneListener, IGraphRenderer, IObje
         /*
          * view.addViewLifecycleChangedListener(new
          * IViewLifecycleEventListener() {
-         * 
+         *
          * @Override public void viewWillRender(ViewLifecycleEvent e) {
          * System.out.println("alpha"); updatePointAlpha(); }
-         * 
+         *
          * @Override public void viewHasInit(ViewLifecycleEvent e) { } });
          */
 
@@ -124,7 +124,7 @@ public class GraphRenderer implements IOnStepDoneListener, IGraphRenderer, IObje
      * Step ratio is the number of layout steps required to update the chart.
      * Sayed differently, if R is number of rendering occurence, and L number of
      * layout steps, the resulting referesh ratio is R/L.
-     * 
+     *
      * @param stepRatio
      */
     public void setLayoutStepRatio(int stepRatio) {
@@ -450,11 +450,11 @@ public class GraphRenderer implements IOnStepDoneListener, IGraphRenderer, IObje
      * public NewtMousePickingController<Node,String> getChartMouseController(){
      * return (NewtMousePickingController<Node,String>)
      * ((CanvasAWT)getChart().getCanvas()).getMouseListeners()[0]; }
-     * 
+     *
      * public PickingSupport getPickingSupport(){ try{ return
      * getChartMouseController().getPickingSupport(); } catch(ClassCastException
      * e){ return null; } }
-     * 
+     *
      * public void registerNodeRepresentationPicking(Node n){ Sphere s =
      * getNodeRepresentation(n); PickingSupport sp = getPickingSupport();
      * if(sp!=null) sp.registerDrawableObject(s, n); }
@@ -479,3 +479,4 @@ public class GraphRenderer implements IOnStepDoneListener, IGraphRenderer, IObje
     protected Map<Object, DrawableTextWrapper> nodeLabelRepresentation = new HashMap<Object, DrawableTextWrapper>();
     protected Map<Object, LineStrip> edgeRepresentation = new HashMap<Object, LineStrip>();
 }
+

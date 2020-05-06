@@ -4,3 +4,4 @@ public enum TextRendererType {
     BITMAP,
     BILLBOARD
 }
+

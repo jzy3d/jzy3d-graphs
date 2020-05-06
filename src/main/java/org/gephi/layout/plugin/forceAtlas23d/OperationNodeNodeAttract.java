@@ -67,3 +67,4 @@ public class OperationNodeNodeAttract extends Operation {
         f.apply(n1, n2, coefficient);
     }
 }
+

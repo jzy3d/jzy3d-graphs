@@ -11,21 +11,22 @@ public class LayoutChangedToConsole implements IOnStepDoneListener {
     public LayoutChangedToConsole(GraphModel g){
         this.g = g;
     }
-    
+
     @Override
     public void stepDone(Layout layout) {
         Graph graph = g.getGraph();
-        
+
         for(Node n: graph.getNodes()){
-            
-            Coord3d center = new Coord3d(n.x(), n.y(), n.z());           
+
+            Coord3d center = new Coord3d(n.x(), n.y(), n.z());
             /*NodeData nd = n.getNodeData();
-            float radius = n.getRadius();  
+            float radius = n.getRadius();
             String label = nd.getLabel();*/
-            
+
             System.out.println(n.getLabel() + " " + center);
         }
-            
+
     }
     protected GraphModel g;
 }
+

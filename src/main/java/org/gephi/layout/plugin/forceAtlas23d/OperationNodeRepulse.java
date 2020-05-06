@@ -65,3 +65,4 @@ public class OperationNodeRepulse extends Operation {
         f.apply(n, coefficient);
     }
 }
+

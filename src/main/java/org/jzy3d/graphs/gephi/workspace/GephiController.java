@@ -29,7 +29,7 @@ import org.openide.util.Lookup;
 
 public class GephiController {
     Workspace workspace;
-    
+
     /**Init a project - and therefore a workspace*/
     public Workspace init() {
         ProjectController pc = Lookup.getDefault().lookup(ProjectController.class);
@@ -38,16 +38,16 @@ public class GephiController {
         pc.openWorkspace(workspace);
         return workspace;
     }
-    
+
     /** random init required to have z!=0*/
-    public void randomizeGraphLayout(GraphModel g){        
+    public void randomizeGraphLayout(GraphModel g){
         for(Node n: g.getGraph().getNodes()){
             n.setX((float)Math.random());
             n.setY((float)Math.random());
             n.setZ((float)Math.random());
         }
     }
-    
+
     public void sizeWithNodeNeighbourCount(GraphModel g){
         for(Node n: g.getGraph().getNodes()){
             int c = getNeighbourCount(g,n);
@@ -55,7 +55,7 @@ public class GephiController {
             n.setSize(Math.min(c,1));
         }
     }
-    
+
     public int getNeighbourCount(GraphModel g, Node n){
         NodeIterable neigh = g.getGraphVisible().getNeighbors(n);
         int k = 0;
@@ -64,11 +64,11 @@ public class GephiController {
         }
         return k;
     }
-    
+
     public GraphModel getGraph(){
         return Lookup.getDefault().lookup(GraphController.class).getGraphModel();
     }
-    
+
     public static void layoutAuto(GraphModel graphModel){
         AutoLayout autoLayout = new AutoLayout(1, TimeUnit.MINUTES);
         autoLayout.setGraphModel(graphModel);
@@ -82,7 +82,7 @@ public class GephiController {
 
         //Export
     }
-    
+
     public void importGraph(String f){
         ProjectController pc = Lookup.getDefault().lookup(ProjectController.class);
         pc.newProject();
@@ -98,7 +98,7 @@ public class GephiController {
             container = importController.importFile(file);
             container.getLoader().setEdgeDefault(EdgeDirectionDefault.DIRECTED);   //Force DIRECTED
             //container.setAllowAutoNode(false);  //Don't create missing nodes
-            
+
         } catch (Exception ex) {
             ex.printStackTrace();
             return;
@@ -107,7 +107,7 @@ public class GephiController {
         //Append imported data to GraphAPI
         importController.process(container, new DefaultProcessor(), workspace);
     }
-    
+
 
     /**
      * "gexf"
@@ -117,7 +117,7 @@ public class GephiController {
     public void save(String filename){
         save(filename, "graphml");
     }
-    
+
     public void save(String filename, String format){
         File out = new File(filename);
         if(!out.getParentFile().exists())
@@ -129,19 +129,19 @@ public class GephiController {
         try {
             ec.exportFile(out, exporter);
         //    ec.exportFile(new File(filename));
-            
+
         } catch (IOException ex) {
             ex.printStackTrace();
             return;
         }
     }
-    
+
 
 
     public void exportPdf(String file) throws IOException {
         ExportController ec = Lookup.getDefault().lookup(ExportController.class);
         ec.exportFile(new File(file));
-        
+
 
         //PDF Exporter config and export to Byte array
        /* PDFExporter pdfExporter = (PDFExporter) ec.getExporter("pdf");
@@ -150,18 +150,18 @@ public class GephiController {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         ec.exportStream(baos, pdfExporter);
         byte[] pdf = baos.toByteArray();*/
-        
+
         //StringWriter stringWriter = new StringWriter();
         //ec.exportWriter(stringWriter, (CharacterExporter) exporterGraphML);
         //System.out.println(stringWriter.toString());   //Uncomment this line
 
     }
-    
+
     /* EDIT CURRENT GRAPH */
-    
+
     int nn = 0;
     int ne = 0;
-    
+
     Map<String,Node> nodes = new HashMap<String,Node>();
 
     /**
@@ -181,7 +181,7 @@ public class GephiController {
     public void addEdge(String n1, String n2, int value) {
         addEdge(n1, n2, value, false);
     }
-    
+
     public void addEdge(String n1, String n2, int value, boolean onlyIfNon0) {
         Node node1 = nodes.get(n1);
         Node node2 = nodes.get(n2);
@@ -199,18 +199,18 @@ public class GephiController {
             addEdge(node1, node2, value);
         }
     }
-    
+
     public Node addNode(String name) {
         return addNode(name, false);
     }
-    
+
     public void addEdge(Node n1, Node n2, int value) {
         GraphModel graph = getGraph();
         Edge e1 = graph.factory().newEdge(n1, n2, value, true);
         graph.getDirectedGraph().addEdge(e1);
         ne++;
     }
-    
+
     public void printInfo(){
         GraphModel graph = getGraph();
         DirectedGraph directedGraph = graph.getDirectedGraph();
@@ -222,7 +222,7 @@ public class GephiController {
         //System.out.println("Edges: "+undirectedGraph.getEdgeCount());   //The mutual edge is automatically merged
 
     }
-    
+
     public GraphModel editCurrentGraph() {
         //Get a graph model - it exists because we have a workspace
         GraphModel graphModel = Lookup.getDefault().lookup(GraphController.class).getGraphModel();
@@ -279,7 +279,8 @@ public class GephiController {
         /*for(Node n : directedGraph.getNodes().toArray()) {
             directedGraph.removeNode(n);
         }*/
-        
+
         return graphModel;
     }
 }
+

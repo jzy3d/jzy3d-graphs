@@ -246,3 +246,4 @@ public class GraphRendererSettings implements IGraphRendererSettings{
 
     Map<Node,Boolean> selection = new HashMap<Node, Boolean>();
 }
+

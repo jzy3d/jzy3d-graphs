@@ -58,3 +58,4 @@ public class ForceAtlas23dLayoutData implements LayoutData {
     public double old_dz = 0;
     public double mass = 1;
 }
+
