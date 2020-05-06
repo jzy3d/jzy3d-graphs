@@ -1,6 +1,6 @@
 /*
 Copyright 2008-2010 Gephi
-Authors : Mathieu Jacomy
+Authors : Mathieu Jacomy <mathieu.jacomy@gmail.com>
 Website : http://www.gephi.org
 
 This file is part of Gephi.
