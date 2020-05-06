@@ -1,6 +1,5 @@
 package org.jzy3d.graphs.trials.facebook2;
 
-
 import org.gephi.layout.spi.Layout;
 import org.jzy3d.chart.Chart;
 import org.jzy3d.graphs.gephi.layout.GephiLayoutFactory;

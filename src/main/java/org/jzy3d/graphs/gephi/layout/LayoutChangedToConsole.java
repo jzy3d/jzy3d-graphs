@@ -1,11 +1,10 @@
 package org.jzy3d.graphs.gephi.layout;
+
 import org.gephi.graph.api.Graph;
 import org.gephi.graph.api.GraphModel;
 import org.gephi.graph.api.Node;
 import org.gephi.layout.spi.Layout;
 import org.jzy3d.maths.Coord3d;
-
-
 
 public class LayoutChangedToConsole implements IOnStepDoneListener {
     public LayoutChangedToConsole(GraphModel g){
