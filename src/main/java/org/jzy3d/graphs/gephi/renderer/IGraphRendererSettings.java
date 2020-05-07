@@ -12,15 +12,16 @@ public interface IGraphRendererSettings {
 
     public Color getEdgeColorSource(Edge e);
     public Color getEdgeColorTarget(Edge e);
-    
+
     public boolean isNodeLabelDisplayed();
     public boolean isNodePointDisplayed();
     public void setNodeLabelDisplayed(boolean status);
     public void setNodePointDisplayed(boolean status);
-    
+
     public void setSelected(Node n, boolean value);
     public boolean isSelected(Node n);
     public void resetSelection();
-    
-    
+
+
 }
+

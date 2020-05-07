@@ -1,6 +1,7 @@
 /*
 Copyright 2008-2010 Gephi
-Authors : Mathieu Jacomy
+SPDX-License-Identifier: GPL-3.0-only OR CDDL-1.0
+Authors : Mathieu Jacomy <mathieu.jacomy@gmail.com>
 Website : http://www.gephi.org
 
 This file is part of Gephi.
@@ -511,3 +512,4 @@ public class ForceAtlasLayout3d extends AbstractLayout implements Layout {
         this.adjustSizes = adjustSizes;
     }
 }
+

@@ -17,53 +17,53 @@ public class GephiLayoutController {
     public GephiLayoutController(){
         init();
     }
-    
+
     public void init(){
         projectController = Lookup.getDefault().lookup(ProjectController.class);
-        projectController.newProject();        
+        projectController.newProject();
         //graphController = new NetlightGraphController();
     }
-    
+
     /****************/
 
     public Workspace newWorkspace(){
         projectController = Lookup.getDefault().lookup(ProjectController.class);
-        
+
         Workspace w = projectController.newWorkspace(projectController.getCurrentProject());
-        
+
         workspaces.add(w);
         return w;
     }
-    
+
     public List<Workspace> getWorkspaces() {
         return workspaces;
     }
 
     /****************/
-    
+
     public GraphModel getGraphModel(){
         return getGraphModel(null);
     }
-    
+
     public GraphModel getGraphModel(Workspace workspace){
         projectController = Lookup.getDefault().lookup(ProjectController.class);
-        
+
         if(workspace!=null)
             projectController.openWorkspace(workspace);
         //new NetlightGraphController().getModel();
         return Lookup.getDefault().lookup(GraphController.class).getGraphModel();
     }
-    
+
     /*public GraphSheet getGraphSheet(){
         return getGraphSheet(null);
     }*/
-    
+
     /*public GraphSheet getGraphSheet(Workspace workspace){
         projectController = Lookup.getDefault().lookup(ProjectController.class);
-        
+
         //if(workspace!=null)
             projectController.openWorkspace(workspace);
-        
+
         PreviewControllerImpl controller;
         if(!workspacePreview.containsKey(workspace)){
             controller = (PreviewControllerImpl)Lookup.getDefault().lookup(PreviewController.class);
@@ -74,20 +74,20 @@ public class GephiLayoutController {
         }
         controller.buildGraph();
         //System.out.println(controller);
-        
+
         return controller.getGraphSheet();
     }*/
-    
+
     /****************/
-    
+
     public void setWorkspaceLayout(Workspace workspace, Layout layout){
         layoutMap.put(workspace, layout);
     }
-    
+
     public Layout getLayout(Workspace workspace){
         return layoutMap.get(workspace);
     }
-    
+
     /****************/
 
     public ProjectController getProjectController() {
@@ -101,16 +101,17 @@ public class GephiLayoutController {
     public PreviewController getPreviewController() {
         return vc;
     }*/
-    
+
     /****************/
-    
+
     protected ProjectController projectController;
     protected PreviewController vc;
     protected GraphController graphController;
-    
+
     protected Map<Workspace, Layout> layoutMap = new HashMap<Workspace, Layout>();
-    
-    protected List<Workspace> workspaces = new ArrayList<Workspace>(); 
-    
+
+    protected List<Workspace> workspaces = new ArrayList<Workspace>();
+
     protected Map<Workspace, PreviewController> workspacePreview = new HashMap<Workspace, PreviewController>();
 }
+

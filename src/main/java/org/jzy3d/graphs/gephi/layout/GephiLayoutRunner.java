@@ -22,7 +22,7 @@ public class GephiLayoutRunner {
         for (int i = 0; i < steps && layout.canAlgo(); i++)
             layout.goAlgo();
     }
-    
+
 	public void run(Layout layout, int steps, IOnStepDoneListener listener){
 		layout.initAlgo();
 		for (int i = 0; i < steps /*&& layout.canAlgo()*/; i++) {
@@ -30,7 +30,7 @@ public class GephiLayoutRunner {
 			listener.stepDone(layout);
 		}
 	}
-		
+
 	/*******************/
 
 	public void runAll(GephiLayoutController store){
@@ -49,14 +49,14 @@ public class GephiLayoutRunner {
         }
         executor.shutdown();
 	}
-	
+
 	protected List<Future<?>> createFutures(ExecutorService executor, Collection<Workspace> workspaces, GephiLayoutController store){
         List<Future<?>> fs = new ArrayList<Future<?>>();
         for(Workspace w: workspaces)
             fs.add(executor.submit(createLayoutRunnable(w, store.getLayout(w))));
         return fs;
     }
-    
+
     protected Runnable createLayoutRunnable(final Workspace workspace, final Layout layout) {
         return new Runnable() {
             @Override
@@ -70,3 +70,4 @@ public class GephiLayoutRunner {
         };
     }
 }
+

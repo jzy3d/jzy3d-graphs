@@ -1,5 +1,6 @@
 /*
 Copyright 2008-2011 Gephi
+SPDX-License-Identifier: GPL-3.0-only OR CDDL-1.0
 Authors : Mathieu Jacomy <mathieu.jacomy@gmail.com>
 Website : http://www.gephi.org
 
@@ -618,3 +619,4 @@ public class ForceFactory {
         }
     }
 }
+

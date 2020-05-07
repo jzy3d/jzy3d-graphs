@@ -5,3 +5,4 @@ import org.gephi.layout.spi.Layout;
 public interface IOnStepDoneListener {
     public void stepDone(Layout layout);
 }
+

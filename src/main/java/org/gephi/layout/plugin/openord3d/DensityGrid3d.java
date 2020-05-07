@@ -1,4 +1,5 @@
 /*
+SPDX-License-Identifier: BSD-3-Clause
 Copyright 2007 Sandia Corporation. Under the terms of Contract
 DE-AC04-94AL85000 with Sandia Corporation, the U.S. Government retains
 certain rights in this software.
@@ -249,3 +250,4 @@ public class DensityGrid3d implements Cloneable {
 	 * = bins[i][j].clone(); } } return densityGrid; }
 	 */
 }
+

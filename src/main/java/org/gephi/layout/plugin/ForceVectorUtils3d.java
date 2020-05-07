@@ -1,6 +1,7 @@
 /*
 Copyright 2008-2010 Gephi
-Authors : Mathieu Jacomy
+SPDX-License-Identifier: GPL-3.0-only OR CDDL-1.0
+Authors : Mathieu Jacomy <mathieu.jacomy@gmail.com>
 Website : http://www.gephi.org
 
 This file is part of Gephi.
@@ -52,7 +53,7 @@ public class ForceVectorUtils3d {
         double xDist = N1.x() - N2.x();	// distance en x entre les deux noeuds
         double yDist = N1.y() - N2.y();
         double zDist = N1.z() - N2.z();
-        
+
         double dist = (float) Math.sqrt(xDist * xDist + yDist * yDist + zDist * zDist);	// distance tout court
 
         if (dist > 0) {
@@ -75,7 +76,7 @@ public class ForceVectorUtils3d {
         double xDist = N1.x() - N2.x();	// distance en x entre les deux noeuds
         double yDist = N1.y() - N2.y();
         double zDist = N1.z() - N2.z();
-        
+
         double dist = (float) Math.sqrt(xDist * xDist + yDist * yDist + zDist * zDist); // distance tout court
 
         if (dist > 0) {
@@ -237,3 +238,4 @@ public class ForceVectorUtils3d {
         return 0.001 * c / dist;
     }
 }
+

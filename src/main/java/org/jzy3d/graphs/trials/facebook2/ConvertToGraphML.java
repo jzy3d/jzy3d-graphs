@@ -1,4 +1,5 @@
 package org.jzy3d.graphs.trials.facebook2;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
@@ -6,7 +7,6 @@ import java.util.regex.Pattern;
 
 import org.jzy3d.graphs.gephi.workspace.GephiController;
 import org.jzy3d.io.FileReader;
-
 
 public class ConvertToGraphML {
     public static String TRAIN = "data/train/";
@@ -51,3 +51,4 @@ public class ConvertToGraphML {
         System.out.println("saved " + train);
     }
 }
+
