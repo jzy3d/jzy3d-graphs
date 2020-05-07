@@ -1,4 +1,3 @@
-package org.jzy3d.graphs.trials;
 /*
 Copyright 2008-2010 Gephi
 Authors : Mathieu Bastian <mathieu.bastian@gephi.org>
@@ -19,8 +18,7 @@ GNU Affero General Public License for more details.
 You should have received a copy of the GNU Affero General Public License
 along with Gephi.  If not, see <http://www.gnu.org/licenses/>.
 */
-
-
+package org.jzy3d.graphs.trials;
 
 import java.io.File;
 
