@@ -1,4 +1,5 @@
 /*
+ * SPDX-License-Identifier: BSD-2-Clause
  * Copyright (c) Since 2017, Martin Pernollet
  * All rights reserved.
  *
