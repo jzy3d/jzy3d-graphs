@@ -1,5 +1,6 @@
 /*
 Copyright 2008-2010 Gephi
+SPDX-License-Identifier: GPL-3.0-only OR CDDL-1.0
 Authors : Mathieu Bastian <mathieu.bastian@gephi.org>
 Website : http://www.gephi.org
 
