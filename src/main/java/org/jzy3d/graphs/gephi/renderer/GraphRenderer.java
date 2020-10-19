@@ -65,14 +65,11 @@ public class GraphRenderer implements IOnStepDoneListener, IGraphRenderer, IObje
 
     // Quality.Advanced, "awt"
     protected static Chart newChart(GraphModel g, Quality quality, String wt, String chart) {
-        // Chart c = DepthPeelingChart.get(Quality.Fastest, "awt");
         Chart c;// "awt" failed constructor
         if (chart == null || "".equals(chart) || "chart".equals(chart))
-            c = AWTChartComponentFactory.chart(quality, wt);
-        else /*if ("depthpeelingchart".equals(chart)) {
-            c = DepthPeelingChart.get(Quality.Fastest, wt);
-        } else*/ if ("graphchart".equals(chart)) {
-            c = new GraphChart(quality, wt);
+            c = AWTChartComponentFactory.chart(quality);//, wt);
+        else if ("graphchart".equals(chart)) {
+            c = new GraphChart(quality);
         } else
             throw new IllegalArgumentException("Failed to find the chart type '" + chart + "'");
         c.getView().setSquared(false);
