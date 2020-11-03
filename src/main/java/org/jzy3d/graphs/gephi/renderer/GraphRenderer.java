@@ -16,7 +16,7 @@ import org.jzy3d.chart.Chart;
 import org.jzy3d.chart.ChartLauncher;
 import org.jzy3d.chart.controllers.mouse.picking.IObjectPickedListener;
 import org.jzy3d.chart.controllers.mouse.picking.PickingSupport;
-import org.jzy3d.chart.factories.AWTChartComponentFactory;
+import org.jzy3d.chart.factories.AWTChartFactory;
 import org.jzy3d.chart.graphs.GraphChart;
 import org.jzy3d.colors.Color;
 import org.jzy3d.graphs.gephi.layout.IOnStepDoneListener;
@@ -67,7 +67,7 @@ public class GraphRenderer implements IOnStepDoneListener, IGraphRenderer, IObje
     protected static Chart newChart(GraphModel g, Quality quality, String wt, String chart) {
         Chart c;// "awt" failed constructor
         if (chart == null || "".equals(chart) || "chart".equals(chart))
-            c = AWTChartComponentFactory.chart(quality);//, wt);
+            c = AWTChartFactory.chart(quality);//, wt);
         else if ("graphchart".equals(chart)) {
             c = new GraphChart(quality);
         } else
