@@ -9,7 +9,7 @@ import org.jzy3d.colors.colormaps.ColorMapHotCold;
 import org.jzy3d.events.IViewLifecycleEventListener;
 import org.jzy3d.events.ViewLifecycleEvent;
 import org.jzy3d.maths.Pair;
-import org.jzy3d.plot3d.primitives.AbstractDrawable;
+import org.jzy3d.plot3d.primitives.Drawable;
 import org.jzy3d.plot3d.primitives.LineStrip;
 import org.jzy3d.plot3d.primitives.Point;
 import org.jzy3d.plot3d.rendering.ordering.BarycentreOrderingStrategy;
@@ -65,7 +65,7 @@ public class GraphColorMapper {
 	public void updatePointAlpha(){
 		double minDist = Double.POSITIVE_INFINITY;
 		double maxDist = Double.NEGATIVE_INFINITY;
-		List<AbstractDrawable> drawables = null;
+		List<Drawable> drawables = null;
 		try{
 			drawables = graph.getDecomposition();
 		}
@@ -74,7 +74,7 @@ public class GraphColorMapper {
 		}
 
 		List<Pair<Point,Double>> pointDistances = new ArrayList<Pair<Point,Double>>();
-		for(AbstractDrawable d: drawables){
+		for(Drawable d: drawables){
 			if(d instanceof Point){
 				Point p = (Point)d;
 				double dist = ordering.score(p.xyz);
@@ -112,10 +112,10 @@ public class GraphColorMapper {
 	public void updateLines(){
 		double minDist = Double.POSITIVE_INFINITY;
 		double maxDist = Double.NEGATIVE_INFINITY;
-		List<AbstractDrawable> drawables = graph.getDecomposition();
+		List<Drawable> drawables = graph.getDecomposition();
 
 		List<Pair<Point,Double>> pointDistances = new ArrayList<Pair<Point,Double>>();
-		for(AbstractDrawable d: drawables){
+		for(Drawable d: drawables){
 			if(d instanceof LineStrip){
 				LineStrip line = (LineStrip)d;
 
