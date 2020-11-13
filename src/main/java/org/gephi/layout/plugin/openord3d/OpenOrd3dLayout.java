@@ -32,10 +32,6 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 package org.gephi.layout.plugin.openord3d;
 
-import gnu.trove.TIntDoubleHashMap;
-import gnu.trove.TIntDoubleIterator;
-import gnu.trove.TIntHashingStrategy;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -54,6 +50,10 @@ import org.gephi.layout.spi.LayoutProperty;
 import org.gephi.utils.longtask.spi.LongTask;
 import org.gephi.utils.progress.ProgressTicket;
 import org.openide.util.NbBundle;
+
+import gnu.trove.TIntDoubleHashMap;
+import gnu.trove.TIntDoubleIterator;
+import gnu.trove.TIntHashingStrategy;
 
 /**
  *

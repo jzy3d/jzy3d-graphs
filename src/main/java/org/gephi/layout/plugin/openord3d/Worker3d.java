@@ -32,12 +32,12 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 package org.gephi.layout.plugin.openord3d;
 
-import gnu.trove.TIntDoubleHashMap;
-import gnu.trove.TIntDoubleIterator;
-
 import java.util.Random;
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
+
+import gnu.trove.TIntDoubleHashMap;
+import gnu.trove.TIntDoubleIterator;
 
 /**
  *
