@@ -48,7 +48,7 @@ public class DrawGraph extends GephiController{
         graphColorMapper.setGraph(renderer.getChart().getScene().getGraph());
 
         renderer.setLayoutStepRatio(1);
-        renderer.getChart().getView().setAxeBoxDisplayed(false);
+        renderer.getChart().getView().setAxisDisplayed(false);
         renderer.openChart();
 
         GephiLayoutRunner runner = new GephiLayoutRunner();
