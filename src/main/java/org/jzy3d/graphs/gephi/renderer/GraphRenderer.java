@@ -31,7 +31,7 @@ import org.jzy3d.plot3d.primitives.Sphere;
 import org.jzy3d.plot3d.primitives.pickable.PickableSphere;
 import org.jzy3d.plot3d.rendering.canvas.Quality;
 import org.jzy3d.plot3d.text.DrawableTextWrapper;
-import org.jzy3d.plot3d.text.align.Halign;
+import org.jzy3d.plot3d.text.align.Horizontal;
 import org.jzy3d.plot3d.text.drawable.DrawableTextBillboard;
 import org.jzy3d.plot3d.text.drawable.DrawableTextBitmap;
 
@@ -308,7 +308,7 @@ public class GraphRenderer implements IOnStepDoneListener, IGraphRenderer, IObje
       txt = new DrawableTextBillboard(text, c, color);
     else
       throw new RuntimeException("unknown text wrapper");
-    txt.setHalign(Halign.LEFT); // TODO: invert left/right
+    txt.setHalign(Horizontal.LEFT); // TODO: invert left/right
     return txt;
   }
 
