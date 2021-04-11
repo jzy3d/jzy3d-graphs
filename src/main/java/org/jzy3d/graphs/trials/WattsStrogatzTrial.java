@@ -20,7 +20,6 @@ package org.jzy3d.graphs.trials;
 
 
 import java.io.File;
-
 import org.gephi.graph.api.GraphModel;
 import org.gephi.layout.spi.Layout;
 import org.gephi.project.api.Workspace;

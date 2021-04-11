@@ -2,7 +2,6 @@ package org.jzy3d.graphs.gephi.layout;
 
 import java.util.HashMap;
 import java.util.Map;
-
 import org.gephi.project.api.Workspace;
 import org.jzy3d.maths.Coord2d;
 

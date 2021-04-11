@@ -3,7 +3,6 @@ package org.jzy3d.graphs.gephi.renderer;
 import java.util.ArrayList;
 import java.util.ConcurrentModificationException;
 import java.util.List;
-
 import org.jzy3d.colors.Color;
 import org.jzy3d.colors.colormaps.ColorMapHotCold;
 import org.jzy3d.events.IViewLifecycleEventListener;

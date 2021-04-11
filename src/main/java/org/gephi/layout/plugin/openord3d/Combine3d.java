@@ -27,7 +27,6 @@ package org.gephi.layout.plugin.openord3d;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
-
 import org.gephi.graph.api.Graph;
 import org.gephi.layout.plugin.openord.OpenOrdLayoutData;
 

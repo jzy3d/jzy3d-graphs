@@ -2,7 +2,6 @@ package org.jzy3d.graphs.gephi.renderer;
 
 import java.util.HashMap;
 import java.util.Map;
-
 import org.gephi.graph.api.Edge;
 import org.gephi.graph.api.Node;
 import org.jzy3d.colors.Color;

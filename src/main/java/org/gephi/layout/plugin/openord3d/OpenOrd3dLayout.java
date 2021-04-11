@@ -31,7 +31,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import java.util.concurrent.CyclicBarrier;
-
 import org.gephi.graph.api.Edge;
 import org.gephi.graph.api.Graph;
 import org.gephi.graph.api.GraphModel;
@@ -43,7 +42,6 @@ import org.gephi.layout.spi.LayoutProperty;
 import org.gephi.utils.longtask.spi.LongTask;
 import org.gephi.utils.progress.ProgressTicket;
 import org.openide.util.NbBundle;
-
 import gnu.trove.TIntDoubleHashMap;
 import gnu.trove.TIntDoubleIterator;
 import gnu.trove.TIntHashingStrategy;

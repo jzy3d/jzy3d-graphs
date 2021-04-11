@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.regex.Pattern;
-
 import org.jzy3d.graphs.gephi.workspace.GephiController;
 import org.jzy3d.io.FileReader;
 

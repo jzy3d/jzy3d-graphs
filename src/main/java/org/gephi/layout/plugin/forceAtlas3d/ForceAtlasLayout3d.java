@@ -33,7 +33,6 @@ package org.gephi.layout.plugin.forceAtlas3d;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.gephi.graph.api.Edge;
 import org.gephi.graph.api.Graph;
 import org.gephi.graph.api.Node;

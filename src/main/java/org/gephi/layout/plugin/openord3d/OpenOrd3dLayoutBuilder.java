@@ -27,7 +27,6 @@ package org.gephi.layout.plugin.openord3d;
 
 import javax.swing.Icon;
 import javax.swing.JPanel;
-
 import org.gephi.layout.spi.Layout;
 import org.gephi.layout.spi.LayoutBuilder;
 import org.gephi.layout.spi.LayoutUI;
