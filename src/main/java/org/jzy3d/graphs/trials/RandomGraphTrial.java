@@ -57,7 +57,7 @@ public class RandomGraphTrial {
     settings.setNodePointDisplayed(false);
     settings.getEdgeColor().a = 0.8f;
     GraphRenderer representation =
-        GraphRenderer.create(g, settings, Quality.Advanced, "awt", "chart");
+        GraphRenderer.create(g, settings, Quality.Advanced(), "awt", "chart");
     representation.openChart();
 
     // calculate

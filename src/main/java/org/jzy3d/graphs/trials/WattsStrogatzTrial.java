@@ -63,7 +63,7 @@ public class WattsStrogatzTrial extends GephiController {
     settings.setNodeSphereDisplayed(true);
     settings.setNodePointDisplayed(false);
     GraphRenderer representation =
-        GraphRenderer.create(g, settings, Quality.Advanced, "awt", "chart");
+        GraphRenderer.create(g, settings, Quality.Advanced(), "awt", "chart");
     representation.getChart().setAxeDisplayed(false);
     representation.openChart();
 

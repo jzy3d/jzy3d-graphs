@@ -62,7 +62,7 @@ public class ImportAndDrawTrial extends GephiController {
     settings.setNodePointDisplayed(false);
     // settings.setNodeWireColor(settings.getNodeColor(null));
 
-    GraphRenderer renderer = GraphRenderer.create(g, settings, Quality.Advanced, "awt", "chart");
+    GraphRenderer renderer = GraphRenderer.create(g, settings, Quality.Advanced(), "awt", "chart");
     renderer.setLayoutStepRatio(1);
     renderer.getChart().setAxeDisplayed(true);
     renderer.openChart();
